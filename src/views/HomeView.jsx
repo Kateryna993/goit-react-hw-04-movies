@@ -22,7 +22,7 @@ export default function HomeViewMovies() {
         .finally(() => {
           setLoading(false);
           if (page > 1) {
-            window.scrollBy({
+            window.scrollTo({
               top: document.documentElement.scrollHeight,
               behavior: 'smooth',
             });
@@ -41,7 +41,16 @@ export default function HomeViewMovies() {
 
   return (
     <div>
-      <h2>Trending Movies</h2>
+      <h2
+        style={{
+          textAlign: 'center',
+          color: '#454850',
+          fontSize: '28px',
+          textShadow: '1px 1px grey',
+        }}
+      >
+        Trending Movies
+      </h2>
 
       {movies && <MoviesList movies={movies} />}
       {loading && <Loader />}

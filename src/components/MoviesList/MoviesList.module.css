@@ -1,0 +1,56 @@
+.cardSet {
+  padding: 0;
+  margin: 0;
+  margin-top: 50px;
+  list-style: none;
+  max-width: calc(100% - 64px);
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+
+.movieCardElem {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid darkturquoise;
+  background-color: rgba(52, 213, 216, 0.633);
+  padding: 8px;
+  flex-grow: 1;
+  border-radius: 5px;
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.movieCardElem:hover {
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 7px 15px;
+  transform: scale(1.03);
+  cursor: pointer;
+}
+
+.imgCardElem {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding-bottom: 8px;
+}
+
+.link {
+  text-decoration: none;
+  color: #2a363b;
+}
+
+.title,
+.filmRelease {
+  text-align: center;
+  font-size: 18px;
+  /* font-weight: 600px; */
+}
+
+.title {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
