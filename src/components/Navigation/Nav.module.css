@@ -1,3 +1,7 @@
+.navigationBlock {
+  margin-bottom: 15px;
+}
+
 .link {
   display: inline-block;
   text-decoration: none;

@@ -3,7 +3,7 @@ import style from './Nav.module.css';
 
 const Navigation = () => {
   return (
-    <nav>
+    <nav className={style.navigationBlock}>
       <NavLink
         className={style.link}
         activeClassName={style.activeLink}

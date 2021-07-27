@@ -3,16 +3,7 @@ const BaseUrl = 'https://api.themoviedb.org/3';
 const ApiKey = '00058587d68cb4a4d089885f915b5f25';
 
 // 1.список самых популярных фильмов на сегодня для создания коллекции на главной странице.
-// const GetMovieTrending = async () => {
-//   try {
-//     const response = await axios.get(
-//       `${BASE_URL}/trending/movie/week?api_key=${key}`,
-//     );
-//     return response.data.results;
-//   } catch (error) {
-//     throw new Error(error);
-//   }
-// };
+
 const FetchTrendingMovies = page => {
   return axios
     .get(`${BaseUrl}/trending/movie/day?api_key=${ApiKey}&page=${page}`)
@@ -23,10 +14,10 @@ const FetchTrendingMovies = page => {
 // 2. поиск кинофильма по ключевому слову на странице фильмов.
 // https://api.themoviedb.org/3/search/movie?api_key=<<api_key>>&language=en-US&page=1&include_adult=false
 
-const FetchMoviesByKeyword = ({ searchQuery = '' }) => {
+const FetchMoviesByKeyword = (searchQuery, page) => {
   return axios
     .get(
-      `${BaseUrl}/search/movie?query=${searchQuery}&api_key=${ApiKey}&language=en-US&page=1&include_adult=false`,
+      `${BaseUrl}/search/movie?api_key=${ApiKey}&query=${searchQuery}&page=${page}&language=en-US`,
     )
     .then(({ data }) => data)
     .catch(error => error);

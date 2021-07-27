@@ -11,12 +11,13 @@ const MoviesList = ({ movies, location }) => {
           <NavLink
             className={style.link}
             to={{
-              pathname: `${routes.movieList}/${id}`,
+              pathname: `${routes.movieList}/${index}`,
               state: { from: location },
             }}
           >
             <div className={style.imgCardElem}>
               <img
+                className={style.movieCardImg}
                 src={
                   poster_path &&
                   `https://image.tmdb.org/t/p/w500/${poster_path}`
@@ -25,7 +26,9 @@ const MoviesList = ({ movies, location }) => {
               />
 
               <h4 className={style.title}>{title}</h4>
-              <p className={style.filmRelease}>({release_date.slice(0, 4)})</p>
+              <p className={style.filmRelease}>
+                ({release_date && release_date.slice(0, 4)})
+              </p>
             </div>
           </NavLink>
         </li>
