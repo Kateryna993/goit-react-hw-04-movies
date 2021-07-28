@@ -4,7 +4,7 @@ import { FetchMoviesByKeyword } from '../services/MoviesApi';
 import toast from 'react-hot-toast';
 import Searchbar from '../components/MoviesSearch/MoviesSearch';
 import Loader from '../components/Loader/Loader';
-import Button from '../components/Button/Button';
+import LoadMoreButton from '../components/LoadMoreButton/LoadMoreButton';
 import MoviesList from '../components/MoviesList/MoviesList';
 
 export default function MoviesSearchPage() {
@@ -30,6 +30,7 @@ export default function MoviesSearchPage() {
 
           if (results.length === 0) {
             toast.error('No movies with this keyword to be found!');
+            onChangeState();
             return;
           }
         })
@@ -48,7 +49,7 @@ export default function MoviesSearchPage() {
     onFetchMoviesByKeyword();
   }, [page, searchQuery]);
 
-  const handleFormSubmit = (searchQuery, page) => {
+  const handleFormSubmit = searchQuery => {
     history.push({
       ...location,
       search: `query=${searchQuery}`,
@@ -77,7 +78,7 @@ export default function MoviesSearchPage() {
       <Searchbar onSubmit={handleFormSubmit} />
       {movies && <MoviesList movies={movies} location={location} />}
       {loading && <Loader />}
-      {shouldRenderOnLoadMore && <Button onClick={onLoadMore} />}
+      {shouldRenderOnLoadMore && <LoadMoreButton onClick={onLoadMore} />}
     </div>
   );
 }

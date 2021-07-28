@@ -1,9 +1,11 @@
-import { NavLink, withRouter } from 'react-router-dom';
+import { NavLink, withRouter, useLocation } from 'react-router-dom';
 import routes from '../../routes';
 import style from './MoviesList.module.css';
 import PropTypes from 'prop-types';
+import noMoviePoster from '../../images/no-cover.png';
+const MoviesList = ({ movies }) => {
+  const location = useLocation();
 
-const MoviesList = ({ movies, location }) => {
   return (
     <ul className={style.cardSet}>
       {movies.map(({ id, poster_path, title, release_date }, index) => (
@@ -11,7 +13,7 @@ const MoviesList = ({ movies, location }) => {
           <NavLink
             className={style.link}
             to={{
-              pathname: `${routes.movieList}/${index}`,
+              pathname: `${routes.movieList}/${id}`,
               state: { from: location },
             }}
           >
@@ -19,16 +21,19 @@ const MoviesList = ({ movies, location }) => {
               <img
                 className={style.movieCardImg}
                 src={
-                  poster_path &&
-                  `https://image.tmdb.org/t/p/w500/${poster_path}`
+                  poster_path
+                    ? `https://image.tmdb.org/t/p/w500/${poster_path}`
+                    : noMoviePoster
                 }
                 alt={`${title} poster`}
               />
 
-              <h4 className={style.title}>{title}</h4>
-              <p className={style.filmRelease}>
-                ({release_date && release_date.slice(0, 4)})
-              </p>
+              <div className={style.movieCardText}>
+                <h4 className={style.title}>{title}</h4>
+                <p className={style.filmRelease}>
+                  {release_date && <span>({release_date.slice(0, 4)})</span>}
+                </p>
+              </div>
             </div>
           </NavLink>
         </li>
@@ -41,13 +46,3 @@ MoviesList.propTypes = {
   movies: PropTypes.array,
 };
 export default withRouter(MoviesList);
-
-// {
-//   /* <MovieItem
-//               title={title}
-//               imgUrl={
-//                 poster_path && `https://image.tmdb.org/t/p/w500/${poster_path}`
-//               }
-//               date={release_date && release_date.slice(0, 4)}
-//             /> */
-// }

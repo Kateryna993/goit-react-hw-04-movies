@@ -6,7 +6,7 @@ const ApiKey = '00058587d68cb4a4d089885f915b5f25';
 
 const FetchTrendingMovies = page => {
   return axios
-    .get(`${BaseUrl}/trending/movie/day?api_key=${ApiKey}&page=${page}`)
+    .get(`${BaseUrl}/trending/movie/week?api_key=${ApiKey}&page=${page}`)
     .then(({ data }) => data)
     .catch(error => error);
 };

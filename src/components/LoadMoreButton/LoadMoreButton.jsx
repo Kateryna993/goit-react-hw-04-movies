@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import style from './Button.module.css';
+import style from './LoadMoreButton.module.css';
 
 export default function buttonAction({ onClick }) {
   return (

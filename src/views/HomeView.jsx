@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { FetchTrendingMovies } from '../services/MoviesApi';
-
-import Button from '../components/Button/Button';
+// import { useHistory, Link, useRouteMatch, useLocation } from 'react-router-dom';
+import LoadMoreButton from '../components/LoadMoreButton/LoadMoreButton';
 import Loader from '../components/Loader/Loader';
 import MoviesList from '../components/MoviesList/MoviesList';
 
@@ -54,7 +54,7 @@ export default function HomeViewMovies() {
 
       {movies && <MoviesList movies={movies} />}
       {loading && <Loader />}
-      {shouldRenderOnLoadMore && <Button onClick={onLoadMore} />}
+      {shouldRenderOnLoadMore && <LoadMoreButton onClick={onLoadMore} />}
     </div>
   );
 }

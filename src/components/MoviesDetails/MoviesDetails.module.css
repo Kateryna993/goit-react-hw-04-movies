@@ -1,0 +1,38 @@
+.MovieCard {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 12px;
+  color: #2a363b;
+}
+
+.MovieCardDescription {
+  margin-left: 30px;
+}
+
+.MovieCardTitle,
+.MovieRating {
+  margin-bottom: 20px;
+}
+
+.MovieReleaseDate,
+.MovieRating {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.OverviewTitle,
+.GenresTitle,
+.OverviewInfo {
+  margin-bottom: 8px;
+}
+
+.GenresList {
+  padding: 0;
+}
+
+.GenresListItem,
+.OverviewInfo {
+  font-weight: 400;
+  font-size: 17px;
+}
