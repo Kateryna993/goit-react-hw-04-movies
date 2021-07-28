@@ -1,18 +1,22 @@
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, useRouteMatch } from 'react-router-dom';
 import style from './MovieInfoButtons.module.css';
 // import { useLocation } from 'react-router-dom';
 
-export default function MovieInfoButtons({ url }) {
+export default function MovieInfoButtons() {
   const location = useLocation();
 
-  console.log(url);
+  const { url } = useRouteMatch();
+
+  // console.log(url);
 
   return (
     <ul className={style.InfoBtnsWrapper}>
       <li className={style.InfoBtnElem}>
         <NavLink
-          // activeClassName={activeLink}
-          to={{ pathname: `${url}/cast`, state: location }}
+          to={{
+            pathname: `${url}/cast`,
+            state: location,
+          }}
         >
           <button className={style.InfoButton} type="button">
             Cast
@@ -20,10 +24,7 @@ export default function MovieInfoButtons({ url }) {
         </NavLink>
       </li>
       <li className={style.InfoBtnElem}>
-        <NavLink
-          // activeClassName={activeLink}
-          to={{ pathname: `${url}/reviews`, state: location }}
-        >
+        <NavLink to={{ pathname: `${url}/reviews`, state: location }}>
           <button className={style.InfoButton} type="button">
             Reviews
           </button>

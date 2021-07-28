@@ -26,12 +26,13 @@ export default function MoviesSearchPage() {
 
       FetchMoviesByKeyword(searchQuery, page)
         .then(({ results }) => {
+          // console.log(results);
           setMovies(prevMovies => [...prevMovies, ...results]);
 
           if (results.length === 0) {
             toast.error('No movies with this keyword to be found!');
-            onChangeState();
-            return;
+          } else if (results.length < 19 && results.length > 0) {
+            toast.error('List of movies with this keyword ended!');
           }
         })
         .catch(error => error)
@@ -65,6 +66,7 @@ export default function MoviesSearchPage() {
 
   const onLoadMore = () => {
     setPage(prevPage => prevPage + 1);
+
     history.push({
       ...location,
       search: `query=${searchQuery}`,

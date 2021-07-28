@@ -1,0 +1,49 @@
+.castWrapper {
+  margin-bottom: 20px;
+}
+
+.cardsContainer {
+  padding: 0;
+  margin: 0;
+  margin-top: 40px;
+  list-style: none;
+  max-width: calc(100% - 64px);
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 25px;
+}
+
+.castCardElem {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgb(74, 182, 184);
+  /* background-color: rgba(52, 213, 216, 0.456); */
+  padding: 5px;
+  flex-grow: 1;
+  border-radius: 5px;
+}
+
+.castCardImg {
+  object-fit: cover;
+  max-width: 100%;
+  border-radius: 5px;
+  height: 289px;
+}
+
+.castCardText {
+  margin-top: 12px;
+  text-align: center;
+}
+
+.actorName {
+  font-size: 19px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.actorCharacter {
+  font-style: italic;
+}

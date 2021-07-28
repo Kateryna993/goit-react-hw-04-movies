@@ -2,7 +2,7 @@ import { NavLink, withRouter, useLocation } from 'react-router-dom';
 import routes from '../../routes';
 import style from './MoviesList.module.css';
 import PropTypes from 'prop-types';
-import noMoviePoster from '../../images/no-cover.png';
+import noMoviePoster from '../../images/no-poster.png';
 const MoviesList = ({ movies }) => {
   const location = useLocation();
 
@@ -22,17 +22,20 @@ const MoviesList = ({ movies }) => {
                 className={style.movieCardImg}
                 src={
                   poster_path
-                    ? `https://image.tmdb.org/t/p/w500/${poster_path}`
+                    ? `https://image.tmdb.org/t/p/w300/${poster_path}`
                     : noMoviePoster
                 }
                 alt={`${title} poster`}
               />
 
               <div className={style.movieCardText}>
-                <h4 className={style.title}>{title}</h4>
-                <p className={style.filmRelease}>
-                  {release_date && <span>({release_date.slice(0, 4)})</span>}
-                </p>
+                <h4 className={style.title}>
+                  {title}&nbsp;
+                  <span className={style.filmRelease}>
+                    {release_date && <span>({release_date.slice(0, 4)})</span>}
+                  </span>
+                </h4>
+                <p></p>
               </div>
             </div>
           </NavLink>

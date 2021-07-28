@@ -14,7 +14,7 @@ export default function Searchbar({ onSubmit }) {
     event.preventDefault();
 
     if (query.trim() === '') {
-      toast.error('Enter keyword to seach images!');
+      toast.error('Enter keyword to search movies!');
       return;
     }
 

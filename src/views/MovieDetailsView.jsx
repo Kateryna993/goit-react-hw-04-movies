@@ -9,6 +9,8 @@ import {
   useRouteMatch,
 } from 'react-router-dom';
 import routes from '../routes';
+import CastInfo from '../components/Cast/Cast';
+import Reviews from '../components/Reviews/Reviews';
 import MovieDetails from '../components/MoviesDetails/MovieDetails';
 import MovieInfoButtons from '../components/MovieInfoBtns/MovieInfoBtns';
 import ReturnButton from '../components/GoBackBtn/GoBackBtn';
@@ -22,6 +24,9 @@ export default function MovieDetailsView() {
   const { url, path } = useRouteMatch();
   const history = useHistory();
   const location = useLocation();
+
+  // console.log('url:', url);
+  // console.log('path:', path);
 
   useEffect(() => {
     setLoading(true);
@@ -60,19 +65,18 @@ export default function MovieDetailsView() {
       )}
       {loading && <Loader />}
       {movie && <MovieInfoButtons url={url} location={location} />}
-      {movie && (
-        <Suspense fallback={<Loader />}>
-          <Switch>
-            <Route path={`${path}:moviesId/cast`}>
-              {/* <CastView moviesId={moviesId} /> */}
-            </Route>
 
-            <Route path={`${path}:moviesId/reviews`}>
-              {/* <ReviewsView moviesId={moviesId} /> */}
-            </Route>
-          </Switch>
-        </Suspense>
-      )}
+      <Suspense fallback={<Loader />}>
+        <Switch>
+          <Route path={`${path}/cast`}>
+            <CastInfo movieId={movieId} />
+          </Route>
+
+          <Route path={`${path}/reviews`}>
+            <Reviews movieId={movieId} />
+          </Route>
+        </Switch>
+      </Suspense>
     </>
   );
 }

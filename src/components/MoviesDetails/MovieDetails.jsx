@@ -1,4 +1,4 @@
-import noMoviePoster from '../../images/no-cover.png';
+import noMoviePoster from '../../images/no-poster.png';
 import style from './MoviesDetails.module.css';
 
 export default function MovieDetails({ movie }) {
