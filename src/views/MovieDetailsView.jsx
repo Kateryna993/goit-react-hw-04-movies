@@ -15,14 +15,15 @@ import MovieInfoButtons from '../components/MovieInfoBtns/MovieInfoBtns';
 import ReturnButton from '../components/GoBackBtn/GoBackBtn';
 import Loader from '../components/Loader/Loader';
 import * as moviesApi from '../services/MoviesApi';
-
 // import CastInfo from '../components/Cast/Cast';
 // import Reviews from '../components/Reviews/Reviews';
+
 const CastInfo = lazy(() =>
-  import('../components/Cast/Cast.jsx' /* webpackChunkName: "cast" */),
+  import('../components/Cast/Cast' /* webpackChunkName: "cast" */),
 );
-const Reviews = lazy(
-  () => '../components/Reviews/Reviews.jsx' /* webpackChunkName: "reviews" */,
+const ReviewsList = lazy(
+  () =>
+    import('../components/Reviews/Reviews') /* webpackChunkName: "reviews" */,
 );
 
 export default function MovieDetailsView() {
@@ -81,7 +82,7 @@ export default function MovieDetailsView() {
           </Route>
 
           <Route path={`${path}/reviews`}>
-            <Reviews movieId={movieId} />
+            <ReviewsList movieId={movieId} />
           </Route>
         </Switch>
       </Suspense>

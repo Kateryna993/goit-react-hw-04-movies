@@ -40,7 +40,3 @@ export default function ReviewsInfo() {
     </div>
   );
 }
-
-// {reviews && (
-
-//       )}
