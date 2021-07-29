@@ -36,6 +36,7 @@ export default function MovieDetailsView() {
 
   // console.log('url:', url);
   // console.log('path:', path);
+  // console.log(location.state.from);
 
   useEffect(() => {
     setLoading(true);
@@ -52,7 +53,7 @@ export default function MovieDetailsView() {
   }, [movieId]);
 
   const handleGoBack = () => {
-    history.push(location?.state?.from ?? routes.home);
+    history.push(location?.state?.from ?? routes.movieList);
   };
 
   return (

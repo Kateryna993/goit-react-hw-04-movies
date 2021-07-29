@@ -38,12 +38,12 @@ export default function MoviesSearchPage() {
         .catch(error => error)
         .finally(() => {
           setLoading(false);
-          if (page > 1) {
-            window.scrollTo({
-              top: document.documentElement.scrollHeight,
-              behavior: 'smooth',
-            });
-          }
+          // if (page > 1) {
+          //   window.scrollTo({
+          //     top: document.documentElement.scrollHeight,
+          //     behavior: 'smooth',
+          //   });
+          // }
         });
     }
 

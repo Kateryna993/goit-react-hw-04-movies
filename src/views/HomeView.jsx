@@ -16,17 +16,18 @@ export default function HomeViewMovies() {
 
       FetchTrendingMovies(page)
         .then(({ results }) => {
+          console.log(results);
           setMovies(prevMovies => [...prevMovies, ...results]);
         })
         .catch(error => error)
         .finally(() => {
           setLoading(false);
-          if (page > 1) {
-            window.scrollTo({
-              top: document.documentElement.scrollHeight,
-              behavior: 'smooth',
-            });
-          }
+          // if (page > 1) {
+          //   window.scrollTo({
+          //     top: document.documentElement.scrollHeight,
+          //     behavior: 'smooth',
+          //   });
+          // }
         });
     }
 
