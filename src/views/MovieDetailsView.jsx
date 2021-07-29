@@ -1,4 +1,4 @@
-import { useState, useEffect, Suspense } from 'react';
+import { useState, useEffect, Suspense, lazy } from 'react';
 
 import {
   Route,
@@ -9,13 +9,21 @@ import {
   useRouteMatch,
 } from 'react-router-dom';
 import routes from '../routes';
-import CastInfo from '../components/Cast/Cast';
-import Reviews from '../components/Reviews/Reviews';
+
 import MovieDetails from '../components/MoviesDetails/MovieDetails';
 import MovieInfoButtons from '../components/MovieInfoBtns/MovieInfoBtns';
 import ReturnButton from '../components/GoBackBtn/GoBackBtn';
 import Loader from '../components/Loader/Loader';
 import * as moviesApi from '../services/MoviesApi';
+
+// import CastInfo from '../components/Cast/Cast';
+// import Reviews from '../components/Reviews/Reviews';
+const CastInfo = lazy(() =>
+  import('../components/Cast/Cast.jsx' /* webpackChunkName: "cast" */),
+);
+const Reviews = lazy(
+  () => '../components/Reviews/Reviews.jsx' /* webpackChunkName: "reviews" */,
+);
 
 export default function MovieDetailsView() {
   const [movie, setMovie] = useState(null);
